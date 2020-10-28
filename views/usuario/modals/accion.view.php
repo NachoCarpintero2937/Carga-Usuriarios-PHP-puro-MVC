@@ -20,7 +20,7 @@
                     </div>
                     <div id="password_div" class="form-group">
                         <label for="form1">Contraseña *</label>
-                        <input id="password" class="form-control">
+                        <input id="password" type="password" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="form1"> Email *</label>
