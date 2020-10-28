@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2020-10-28 02:10:17
+Date: 2020-10-28 02:32:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,13 +33,14 @@ CREATE TABLE `usuarios` (
   KEY `fk_usuarios_tipo` (`tipo`),
   CONSTRAINT `fk_usuarios_estado` FOREIGN KEY (`estado`) REFERENCES `usuarios_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuarios_tipo` FOREIGN KEY (`tipo`) REFERENCES `usuarios_tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO `usuarios` VALUES ('1', 'Natural life', 'NT', '1fea6e857ba6777f25bf7faa1ecc4a62', '1', '1', '2020-10-26 22:08:23', 'test@test.com');
 INSERT INTO `usuarios` VALUES ('2', 'Testing', 'Test', '827ccb0eea8a706c4c34a16891f84e7b', '2', '2', '2020-10-28 00:05:19', 'test@test.com');
+INSERT INTO `usuarios` VALUES ('10', 'Ultimo Test', 'Nacho', '827ccb0eea8a706c4c34a16891f84e7b', '1', '2', '2020-10-28 02:18:50', 'admin@admin.com');
 
 -- ----------------------------
 -- Table structure for usuarios_estado
@@ -54,8 +55,8 @@ CREATE TABLE `usuarios_estado` (
 -- ----------------------------
 -- Records of usuarios_estado
 -- ----------------------------
-INSERT INTO `usuarios_estado` VALUES ('1', 'ACTIVO');
-INSERT INTO `usuarios_estado` VALUES ('2', 'INACTIVO');
+INSERT INTO `usuarios_estado` VALUES ('1', 'HABLITADO');
+INSERT INTO `usuarios_estado` VALUES ('2', 'DESHABILITADO');
 INSERT INTO `usuarios_estado` VALUES ('3', 'ELIMINADO');
 
 -- ----------------------------

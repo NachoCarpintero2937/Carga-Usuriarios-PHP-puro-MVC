@@ -28,7 +28,7 @@ function loadTable(e) {
                        <td>`+ formatDate(element.fecha) + `</td> 
                        <td>
                        <div class="btn-group btn-group-sm " role="group" aria-label="Basic example">
-                       <button type="button" class="btn btn-primary btn-sm"  data-toggle="tooltip" data-placement="top" title="Ver a `+ element.nombre + `" onclick="view(` + element.id + `)"><i class="fas fa-eye"></i></button>
+                       <button type="button" class="btn btn-primary btn-sm"  data-toggle="tooltip" data-placement="top" title="Ver a `+ element.nombre + `" onclick="getAtributeUsers(` + element.id + `)"><i class="fas fa-eye"></i></button>
                      </div>
                        </td>
                        </tr>
@@ -45,7 +45,6 @@ function loadTable(e) {
 //*******************************VISTA DE USUARIO ************************************//
 function view(id) {
     // Llamo a los estados y tipo y muestro modal
-    getAtributeUsers();
     $('#basicExampleModal').modal({
         backdrop: 'static'
     });
@@ -68,6 +67,7 @@ function view(id) {
 
 }
 function prepararForm(respuesta) {
+    console.log(respuesta);
     var nombre = $("#nombre");
     var usuario = $("#usuario");
     var email = $("#email");
@@ -132,9 +132,9 @@ function formatDate(date) {
 // hice esto para no hacer una ternaria gigante
 function badge(estado) {
     var clase;
-    if (estado == "ACTIVO")
+    if (estado == "HABLITADO")
         this.clase = "badge badge-success";
-    else if (estado == "INACTIVO")
+    else if (estado == "DESHABILITADO")
         this.clase = "badge badge-danger";
     else
         this.clase = "badge badge-primary"
@@ -196,7 +196,7 @@ function login() {
     });
 }
 
-function getAtributeUsers() {
+function getAtributeUsers(id) {
     var estados = $("#estado_usuario");
     var tipo_usuario = $("#tipo_usuario");
 
@@ -224,6 +224,9 @@ function getAtributeUsers() {
 
                 });
             }
+            if (id)
+                view(id);
+
         },
         error: function () { }
     });
